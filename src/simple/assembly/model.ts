@@ -13,27 +13,27 @@ export class Meeting {
         this.id = context.blockIndex.toString().slice(2, 8);
         this.meetingOwner = context.sender;
         this.deployTime = context.blockTimestamp;
-    }
-
-    setMeetingOwner() : void {
         participants.set(context.sender, this.id);
     }
 
+    // Adding new participant to participant list
     addParticipant() : void {
         participants.set(context.sender, this.id);
     }
 
+    // Get all participants related to the this meeting
     getParticipantList() : Array<string> {
-        const res: Map<string, string> = new Map<string, string>();
+        var res: Map<string, string> = new Map<string, string>();
         for (let i = 0; i < participants.length; i++) {
-            var key : string = participants.keys()[i]  
-            if (participants.getSome(key) === this.id) {
+            var key : string = participants.keys()[i];
+            if (participants.getSome(key) == this.id) {
                 res.set(key, participants.getSome(key))
             }
         }
         return res.keys();
     }
 
+    // Checking the validation of meeting is expired or not
     checkMeetingValidation(): boolean {
         return context.blockTimestamp >= this.deployTime + stakingPeriod_in_nanosec;
     }

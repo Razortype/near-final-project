@@ -1,7 +1,7 @@
 # Near Certificated Developer Course
 > this project based on [starter--near-sdk-as]("https://github.com/Learn-NEAR/starter--near-sdk-as").
 
-## Meeting App
+## Near Meeting App
 ---
 
 This is the app which allowe users to create account and participate existing meeting rooms. Meeting creation initially get deploy time and expires 10 days later. Meeting creation costs 2 Near coin. All meeting is stored in list where meeting datas can be retrieved. Participants can check their validation with passing id of meeting. 
@@ -35,7 +35,7 @@ $ near call $CONTRACT createMeeting --accountId <owner-account-id> --amount 2
 
 ## Join Meeting
 ```bash
-$ near call $CONTRACT joinMeeting '{"id":"<meeting-id>"}' --accountId <participant-account-id>
+$ near call $CONTRACT joinMeeting '{"id":"<meeting-id>"}' --accountId <account-id>
 ```
 
 ## Get Defined Meeting's Participants
@@ -45,10 +45,10 @@ $ near view $CONTRACT getMeetingParticipants '{"id":"<meeting-id>"}'
 
 ## Check Validation
 ```bash
-$ near call $CONTRACT checkValidation --accountId  <participant-account-id>
+$ near call $CONTRACT checkValidation '{"id":"<meeting-id>"}' --accountId  <account-id>
 ```
 
 ## Delete Expired Meeting
 ```bash
-$ near view $CONTRACT deleteCompletedMeetings
+$ near call $CONTRACT deleteCompletedMeetings --accountId <account-id>
 ```
