@@ -48,9 +48,9 @@ export function createMeeting(): string {
 export function joinMeeting(id: string): string {
 
   assert(meetings.contains(id), "Meeting does not exist!");
-  assert(participants.keys().includes(context.sender) == false, "You have already participated a meeting.")
-  
   const meeting = meetings.getSome(id);
+  
+  assert(meeting.getParticipantList().includes(context.sender) == false, "You have already participated a meeting.")
   assert(meeting.getParticipantList().length < MAX_PARTICIPANT_AMOUNT_, "Meeting participant amount limited to 10 and it is currently full.");
   assert(meeting.getParticipantList().includes(context.sender) == false, "You have already joined to meeting.");
 

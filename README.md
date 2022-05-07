@@ -25,30 +25,30 @@ $ near view $CONTRACT getAllMeetings
 
 ## Get Meeting
 ```bash
-$ near view $CONTRACT getMeeting '{"id":"<meeting-id>"}'
+$ near view $CONTRACT getMeeting '{"id":"<id>"}'
 ```
 
 ## Create Meeting
 ```bash
-$ near call $CONTRACT createMeeting --accountId <owner-account-id> --amount 2
+$ near call $CONTRACT createMeeting --accountId <account> --amount 2
 ```
 
 ## Join Meeting
 ```bash
-$ near call $CONTRACT joinMeeting '{"id":"<meeting-id>"}' --accountId <account-id>
+$ near call $CONTRACT joinMeeting '{"id":"<id>"}' --accountId <account>
 ```
 
 ## Get Defined Meeting's Participants
 ```bash
-$ near view $CONTRACT getMeetingParticipants '{"id":"<meeting-id>"}'
+$ near view $CONTRACT getMeetingParticipants '{"id":"<id>"}'
 ```
 
 ## Check Validation
 ```bash
-$ near call $CONTRACT checkValidation '{"id":"<meeting-id>"}' --accountId  <account-id>
+$ near call $CONTRACT checkValidation '{"id":"<id>"}' --accountId  <account>
 ```
 
 ## Delete Expired Meeting
 ```bash
-$ near call $CONTRACT deleteCompletedMeetings --accountId <account-id>
+$ near call $CONTRACT deleteCompletedMeetings --accountId <account>
 ```
